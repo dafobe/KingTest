@@ -1,9 +1,28 @@
-<div  class="gallery-view">
-  <div class="gallery__title">
-    <h1>{{ portFolioGames.length }}</h1>
+<div  class="portfolio-view">
+  <div class="portfolio__title">
+    <h1>Number of Portfolio Games : {{ portfolio.games.length }}</h1>
   </div>
 </div>
 <div class="module directive">
-    <!-- <inbox></inbox> -->
+	<ul class="portfolio__list">
+		<li data-ng-show="!portfolio.games.length">
+			Oooops!!! May you should add some games to your portfolio.
+			<a data-ng-click="portfolio.removeGame(game)" href="javascript:void(0)">
+					Game Gallery
+				</a>
+		</li>
+		<li data-ng-repeat="game in portfolio.games">
+			<div class="portfolio__list-info">
+				<label class="portfolio__list-name">{{game.name}}</label>
+				<a data-ng-click="portfolio.showDetails(game)" href="javascript:void(0)">
+					Details
+				</a>
+				<a data-ng-click="portfolio.removeGame(game)" href="javascript:void(0)">
+					Remove
+				</a>
+			</div>
+		</li>
+	</ul>
+    <!-- <game></game> -->
 </div>
     

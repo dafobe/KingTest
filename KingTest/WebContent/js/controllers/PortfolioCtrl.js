@@ -4,13 +4,22 @@
  */
 angular.module('GamePortfolioApp')
   .controller('PortfolioCtrl',
-    function GalleryCtrl ($scope, GamesFactory) {
+    function PortfolioCtrl (GamesFactory, NavigationFactory) {
       'use strict';
-      $scope.portFolioGames = GamesFactory.getGames();
+      var ctrl = this;
+      this.games = GamesFactory.getGames();
       
-      $scope.removeGame = function(game){
+      this.removeGame = function(game){
     	  GamesFactory.removeGame(game);
+    	  ctrl.refresh();
       };
       
+      this.refresh = function(){
+    	  ctrl.games = GamesFactory.getGames();
+      };
       
+      this.showDetails = function(game){
+    	  GamesFactory.setGameDetails(game);
+    	  NavigationFactory.renderGameDetails(game.id);
+      }
     });

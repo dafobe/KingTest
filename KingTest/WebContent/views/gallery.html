@@ -1,10 +1,23 @@
-<div  class="gallery-view">
-  <div class="gallery__title">
-    <h1>{{ title }}</h1>
-    <h2>number of Games : {{allGames.length}}</h2>
-  </div>
-</div>
-<div class="module directive">
-    <!-- <inbox></inbox> -->
+<div  class="gallery">
+	<div class="gallery__title">
+		<h1>number of Games : {{gallery.allGames.length}}</h1>
+		<h3>number of Games in Portfolio : {{gallery.portfolioGames.length}}</h3>
+	</div>
+	<a data-ng-click="gallery.showPortfolio()" href="javascript:void(0)">
+		Portfolio
+	</a>
+	<ul class="gallery__list">
+		<li data-ng-show="!gallery.allGames.length">
+			Oooops!!! Seems there aren't available games.
+		</li>
+		<li data-ng-repeat="game in gallery.allGames">
+			<div class="gallery__list-info">
+				<label class="gallery__list-name">{{game.name}}</label>
+				<a data-ng-click="gallery.addGame(game)" href="javascript:void(0)">
+					Add to portfolio
+				</a>
+			</div>
+		</li>
+	</ul>
 </div>
     

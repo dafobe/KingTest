@@ -4,25 +4,38 @@
  */
 angular.module('GamePortfolioApp')
   .controller('GalleryCtrl',
-    function GalleryCtrl ($scope, GamesFactory) {
+    function GalleryCtrl (GamesFactory, NavigationFactory) {
       'use strict';
-      $scope.allGames = [];
-      $scope.title = 'Gallery'
-      var getAllGames = GamesFactory.getAllGames();
-      if(getAllGames){
-    	  getAllGames.then(function(data){
-    		  // add games list to the scope
-    		  $scope.allGames = data.games;
-    		  console.log('---allGames : ', $scope.allGames)
-    	  });
+      var 	ctrl = this,
+      		getAllGames = GamesFactory.getAllGames(),
+      		getPortfolioGames = GamesFactory.getGames();
+      
+      this.allGames = [];
+      this.portfolioGames = getPortfolioGames || [];
+      
+      if(!this.allGames.length && getAllGames){
+    	  getAllGames.then(angular.bind(this, function then(data) {
+    		  this.allGames = data.games;
+    	  }));
       }
       
-      $scope.addGame = function(game){
-    	  GamesFactory.addGame(game);
-    	  console.log('--- add game : ', game);
+      this.addGame = function(game){
+    	  !ctrl._isInPortfolio(game.short) && GamesFactory.addGame(game);
+    	  ctrl.portfolioGames = GamesFactory.getGames();
       };
       
-      $scope.removeGame = function(game){
+      this.removeGame = function(game){
     	  GamesFactory.removeGame(game);
       };
+      this.showPortfolio = function(){
+    	  NavigationFactory.renderPortfolio();
+      };
+      this._isInPortfolio = function(gameId /*String*/){
+    	  for(var i=0,end=ctrl.portfolioGames.length;i<end;i++){
+    		  if (ctrl.portfolioGames[i].id === gameId){
+    			  return true;
+    		  }
+    	  }
+    	  return false;
+      }
     });

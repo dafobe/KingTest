@@ -4,6 +4,11 @@
   </div>
 </div>
 <div class="module directive">
+	<div data-ng-hide="!portfolio.games.length">
+      <input type="text" class="portfolio__search" 
+        data-ng-model="portfolio.search" placeholder="Search by 'name'">
+    </div>
+
 	<ul class="portfolio__list">
 		<li data-ng-show="!portfolio.games.length">
 			Oooops!!! May you should add some games to your portfolio.
@@ -11,7 +16,7 @@
 					Game Gallery
 				</a>
 		</li>
-		<li data-ng-repeat="game in portfolio.games">
+		<li data-ng-repeat="game in portfolio.games | filter:{ name: portfolio.search }">
 			<div class="portfolio__list-info">
 				<label class="portfolio__list-name">{{game.name}}</label>
 				<a data-ng-click="portfolio.showDetails(game)" href="javascript:void(0)">

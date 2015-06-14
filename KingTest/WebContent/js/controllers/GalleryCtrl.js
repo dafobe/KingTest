@@ -15,7 +15,7 @@ angular.module('GamePortfolioApp')
       
       if(!this.allGames.length && getAllGames){
     	  getAllGames.then(angular.bind(this, function then(data) {
-    		  this.allGames = data.games;
+    		  ctrl.allGames = data;
     	  }));
       }
       

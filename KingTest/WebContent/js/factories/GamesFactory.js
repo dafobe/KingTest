@@ -2,6 +2,7 @@ angular.module('GamePortfolioApp')
 .factory('GamesFactory', function GamesFactory($q, $http, $location) {
 	'use strict';
 	var _games = [],
+		_allGames = [],
 		_gameDetails = {},
 		remove,
 		generateURL,
@@ -61,7 +62,13 @@ angular.module('GamePortfolioApp')
 			var deferred = $q.defer();
 			$http.get('json/games.json')
 			.success(function (data) {
-				deferred.resolve(data);
+				for(var r in data.games){
+					var game = data.games[r]
+					var entry = new gameEntry(game.short, game.name, game.url);
+					entry.setup();
+					_allGames.push(entry);
+				}
+				deferred.resolve(_allGames);
 			})
 			.error(function (data) {
 				deferred.reject(data);

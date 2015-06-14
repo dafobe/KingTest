@@ -1,23 +1,29 @@
 <div  class="gallery">
-	<div class="gallery__title">
-		<h1>number of Games : {{gallery.allGames.length}}</h1>
-		<h3>number of Games in Portfolio : {{gallery.portfolioGames.length}}</h3>
+	<div class="gallery__info">
+		<h1 class="gallery__info-main">King Games : {{gallery.allGames.length}}</h1>
+		<h3 class="gallery__info-sec">Games in Portfolio : {{gallery.portfolioGames.length}}</h3>
 	</div>
-	<a data-ng-click="gallery.showPortfolio()" href="javascript:void(0)">
-		Portfolio
-	</a>
-	<ul class="gallery__list">
-		<li data-ng-show="!gallery.allGames.length">
+	<div class="buttons">
+	</div>
+		<button class="search__button" data-ng-click="gallery.showPortfolio()">Portfolio</button>
+    <section data-ng-hide="!gallery.allGames.length" class="gallery__search">
+		<label class="search__label">Search Game: </label>
+		<input class="search__input" type="text" data-ng-model="gallery.search" placeholder="Search by 'name'" />
+	</section>
+	<section class="gallery__list">
+		<article data-ng-show="!gallery.allGames.length">
 			Oooops!!! Seems there aren't available games.
-		</li>
-		<li data-ng-repeat="game in gallery.allGames">
-			<div class="gallery__list-info">
-				<label class="gallery__list-name">{{game.name}}</label>
+		</article>
+		<article class="gallery__list-item" data-ng-repeat="game in gallery.allGames | filter:{ name: gallery.search }">
+			<h3>{{game.name}}</h3>
+			<!-- <em>Lorem Ipsum Description</em> -->
+			<img data-ng-src="{{game.images['60x60']}}">
+			<p>
 				<a data-ng-click="gallery.addGame(game)" href="javascript:void(0)">
 					Add to portfolio
 				</a>
-			</div>
-		</li>
-	</ul>
+			</p>
+		</article>
+	</section>
 </div>
     

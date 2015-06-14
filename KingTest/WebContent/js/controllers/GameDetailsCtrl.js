@@ -10,6 +10,7 @@ angular.module('GamePortfolioApp')
      
       this.name = game['name'];
       this.url = game['url'];
+      this.image = game['images']['60x60'];
       
       this.removeGame = function(game){
     	  GamesFactory.removeGame(game);

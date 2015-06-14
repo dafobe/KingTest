@@ -14,31 +14,44 @@ ol {
   list-style: none;
 }
 
+.positioner {
+  position: absolute;
+  left: 50%;
+}
 /**
  * header
  */
+
 .header {
-  padding: 25px 0;
-  background: #192124;
+  padding: 30px 0;
+  background: #ff4600;
   margin: 0 0 10px;
-  color: #D5DDE0;
+  color: #ff4600;
+  background-image: radial-gradient(circle farthest-corner at 30% 0, #FD4500 , #9B2A00 71%);
   text-align: center;
   margin-bottom: 0;
 }
-
-.header::before {
-  content: '';
-  width: 15px;
-  height: 15px;
-  background-color: #333948;
-  display: block;
-  border-radius: 100%;
-  box-shadow: 25px 0 0 #333948, 50px 0 0 #333948;
-  margin-left: 15px;
-  position: absolute;
-  top: 25px;
+.header__logo::before{
+	content:'';
+	position: absolute;
+	top: -1px;
+	left: 10%;
+	width: 142px;
+	height: 107px;
+	z-index: 52;
+	margin-left: -71px;
+	background: url('https://k1.midasplayer.com/images/branding/kingLogoSprite.png?_v=1nssvt2') no-repeat 0 0;
 }
-
+.header__title{
+	font-size : 40px;
+	color: #ff4600;
+	border: 1px solid #00000
+}
+.header__title em{
+	font-size : 45px;
+	font-weight: 900;
+	color: #ff4600;
+}
 @media screen and (max-width: 640px) {
   .header::before {
     display: none;
@@ -62,7 +75,10 @@ ol {
 .header__text img {
   width: 150px;
 }
-
+.main__separator {
+	border-top: 1px solid #9B2A00;
+	border-bottom: 1px solid #ff4600;
+}
 .module.inbox-view {
   background-color: #313744;
   color: #D5DDE0;

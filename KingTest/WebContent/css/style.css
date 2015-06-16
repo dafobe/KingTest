@@ -122,7 +122,7 @@ ul,ol,li {
     Gallery
 ==========*/
 .gallery {
-	background: #A39183;
+	/* background: #A39183; */
 }
 .gallery__info {
 	background: #A39183;
@@ -189,24 +189,43 @@ ul,ol,li {
 	margin-left: -20px;
 	text-align: center; /* FALLBACK, test */
 }
-.gallery__list-item{
+.gallery__item{
 	position: relative;
 	-ms-flex: 1 0 200px;
 	-webkit-flex: 1 0 200px;
 	flex: 1 0 200px; /* wrapping won't happen with 1 as value because of flex-basis equal to 0 again. can use auto as flex-basis, but then each box is different width. using an absolute value acts as min-width but also ensures they start out same size so when flex gets added it gets added equally and each box on same line stays same width */
 	
 	margin: 0 0 20px 20px;
-	padding: 20px;
+	/* padding: 0 20px; */
 	border-radius: 2px;
-	border: 1px solid #413324; /* IE fallback */
-	border: 1px solid hsl(30,28%,20%);
-	background: #614C37; /* IE fallback */
-	background: hsl(120, 28%, 46%);
-	color: #E9E2D8; /* IE fallback */
-	color: hsl(30,28%,90%);
+	border: 1px solid #F0470F; /* IE fallback */
+	color: #A39183; /* IE fallback */
 	text-align: center;
 }
+.gallery__item-title{
+	position: relative;
+	width: 100%;
+	padding: 5px 2px;
+	
+	margin-bottom: 50px;
+	background: rgba(230, 63, 0, 0.48);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* IE */
+    zoom: 1;
+	color: #FFFFFF;
+	z-index: 10;
+}
 
+.gallery__item > img{
+	opacity: 0.;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	/* text-align: center; */
+	/* width: 100%; */
+}
 /**/
 button::-moz-focus-inner { border:0; }
 button {

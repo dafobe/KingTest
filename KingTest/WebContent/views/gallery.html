@@ -14,11 +14,11 @@
 		<article data-ng-show="!gallery.allGames.length">
 			Oooops!!! Seems there aren't available games.
 		</article>
-		<article class="gallery__list-item" data-ng-repeat="game in gallery.allGames | filter:{ name: gallery.search }">
-			<h3>{{game.name}}</h3>
+		<article class="gallery__item" data-ng-repeat="game in gallery.allGames | filter:{ name: gallery.search }">
+			<h3 class="gallery__item--title">{{game.name}}</h3>
 			<!-- <em>Lorem Ipsum Description</em> -->
-			<img data-ng-src="{{game.images['60x60']}}">
-			<p>
+			<img data-ng-src="{{game.images['170x80']}}">
+			<p class="gallery__item--button">
 				<a data-ng-click="gallery.addGame(game)" href="javascript:void(0)">
 					Add to portfolio
 				</a>

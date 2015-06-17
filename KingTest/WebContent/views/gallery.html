@@ -3,9 +3,6 @@
 		<h1 class="gallery__info-main">King Games : {{gallery.allGames.length}}</h1>
 		<h3 class="gallery__info-sec">Games in Portfolio : {{gallery.portfolioGames.length}}</h3>
 	</div>
-	<div class="buttons">
-	</div>
-		<button class="search__button" data-ng-click="gallery.showPortfolio()">Portfolio</button>
     <section data-ng-hide="!gallery.allGames.length" class="gallery__search">
 		<label class="search__label">Search Game: </label>
 		<input class="search__input" type="text" data-ng-model="gallery.search" placeholder="Search by 'name'" />
@@ -18,7 +15,7 @@
 			<h3 class="gallery__item--title">{{game.name}}</h3>
 			<!-- <em>Lorem Ipsum Description</em> -->
 			<img data-ng-src="{{game.images['170x80']}}">
-			<p class="gallery__item--button">
+			<p class="gallery__item--action">
 				<a data-ng-click="gallery.addGame(game)" href="javascript:void(0)">
 					Add to portfolio
 				</a>

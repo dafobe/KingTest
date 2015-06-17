@@ -87,7 +87,7 @@ angular.module('GamePortfolioApp')
 			return _games;
 		},
 		addGame : function(game /*Object game entity*/){
-			var entry = new gameEntry(game.short, game.name, game.url);
+			var entry = new gameEntry(game.id, game.name, game.url);
 			entry.setup();
 			_games.push(entry);
 			console.log('--- added game : ',entry);

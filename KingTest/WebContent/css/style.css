@@ -13,7 +13,9 @@ body {
 ul,ol,li {
   list-style: none;
 }
-
+.wrapper {
+	min-width: 320px;
+}
 /* ========
     Header
 ==========*/
@@ -22,11 +24,12 @@ ul,ol,li {
   background: #ff4600;
   margin: 0 0 10px;
   color: #FFFFFF;
-  background-image: radial-gradient(circle farthest-corner at 30% 0, #FD4500 , #9B2A00 71%);
+  background-image: radial-gradient(circle farthest-corner at 26% 0, #FD4500 , #9B2A0D 90%);
   /*linear-gradient:(#ffffff 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);*/
   text-align: center;
   margin-bottom: 0;
-  position:relative;
+  position: fixed;
+  z-index: 100;
   top:0;
   width:100%;
   display : flex;
@@ -34,26 +37,27 @@ ul,ol,li {
  
   justify-content: space-around;
 }
-.header__logo::before{
+.header__title::before{
 	content:'';
 	position: absolute;
-	top: 45px;
-	/* left: 10%; */
+	top: 43px;
+	/* left: 4em; */
 	width: 142px;
 	height: 107px;
 	z-index: 100;
-	margin-left: -70px;
-	background: url('https://k1.midasplayer.com/images/branding/kingLogoSprite.png?_v=1nssvt2') no-repeat 0 0;
+	/* margin-left: -70px; */
+	background: url('../img/kingLogoSprite.png') no-repeat 0 0;
+}
+@media screen and (max-width: 200px) {
+ .header__title::before {
+    display: none;
+  }
 }
 .header__logo{
 	flex: 0 1 auto;
 	padding-left: 20px;
 }
-@media screen and (max-width: 640px) {
- .header__logo::before {
-    display: none;
-  }
-}
+
 .header__title{
 	font-size: 40px;
 	/* color: #ff4600; */
@@ -71,6 +75,7 @@ ul,ol,li {
   border-bottom: 1px solid #D5DDE0;
 }
 .header__separator {
+	padding-top: 46px;
 	border-top: 1px solid #FF8040;
 	border-bottom: 1px solid #9B2A00;
 }
@@ -79,7 +84,7 @@ ul,ol,li {
 ==========*/
 .menu{
 	/* background-color: rgba(255, 128, 64, 0); */
-	color: black;
+	color: white;
 	flex: 1 1 auto;
 }
 .menu__list{
@@ -94,7 +99,7 @@ ul,ol,li {
 	justify-content: flex-end;
 	
 	margin: 0;
-	padding: 0 1em 0 20%;
+	/* padding: 0 1em 0 20%; */
 	list-style: none;
 	font-family: 'Hammersmith One', sans-serif;
 	font-weight: normal;
@@ -131,9 +136,10 @@ ul,ol,li {
 ==========*/
 .gallery {
 	/* background: #A39183; */
+	/* padding: 43px 0 0 0; */
 }
 .gallery__info {
-	background: #A39183;
+	background: rgba(163, 145, 131, 0.33);
 	text-align: center;
 	color: #FFE001;
 }
@@ -144,6 +150,7 @@ ul,ol,li {
 	/* background: #559855; */
 }
 .gallery__search{
+	color: #FF6101;
 	-ms-flex: 1 1 100%;
 	-webkit-flex: 1 1 100%;
 	flex: 1 1 100%;
@@ -192,7 +199,7 @@ ul,ol,li {
 	
 	-ms-flex-pack: justify;
 	-webkit-justify-content: space-between;
-	justify-content: space-between;
+	justify-content: space-around;
 	
 	margin-left: -20px;
 	text-align: center; /* FALLBACK, test */
@@ -201,12 +208,15 @@ ul,ol,li {
 	position: relative;
 	-ms-flex: 1 0 200px;
 	-webkit-flex: 1 0 200px;
-	flex: 1 0 200px; /* wrapping won't happen with 1 as value because of flex-basis equal to 0 again. can use auto as flex-basis, but then each box is different width. using an absolute value acts as min-width but also ensures they start out same size so when flex gets added it gets added equally and each box on same line stays same width */
+	flex: 0 0 200px; /* wrapping won't happen with 1 as value because of flex-basis equal to 0 again. can use auto as flex-basis, but then each box is different width. using an absolute value acts as min-width but also ensures they start out same size so when flex gets added it gets added equally and each box on same line stays same width */
 	
 	margin: 0 0 20px 20px;
-	/* padding: 0 20px; */
+	padding: 5px 0 47px 0;
+	-webkit-box-shadow: inset 0 0 1px 1px hsla(0,0%,100%,.5);
+	box-shadow: inset 0 0 1px 1px hsla(0,0%,100%,.5);
 	border-radius: 2px;
-	border: 1px solid #F0470F; /* IE fallback */
+	border: 1px solid #747474; /* IE fallback */
+	
 	color: #A39183; /* IE fallback */
 	text-align: center;
 }
@@ -225,7 +235,8 @@ ul,ol,li {
 
 .gallery__item > img{
 	opacity: 0.;
-	position: absolute;
+	
+	 /* position: absolute; */
 	top: 0;
 	left: 0;
 	right: 0;
@@ -233,6 +244,22 @@ ul,ol,li {
 	margin-right: auto;
 	/* text-align: center; */
 	/* width: 100%; */
+}
+
+.gallery__item--circle{
+	 width: 170px;
+	 height: 170px;
+	 background-size: cover;
+	 display: block;
+	 border-radius: 85px;
+	 -webkit-border-radius: 85px;
+	 -moz-border-radius: 85px;
+}
+.gallery__item--action{
+    position: absolute;
+	 
+    bottom: 0;
+    right: 0;
 }
 /**/
 button::-moz-focus-inner { border:0; }
@@ -266,7 +293,7 @@ input[type="text"] {
 	border: 1px solid hsl(23, 100%, 50%);
 	border-radius: 2px;
 	box-shadow: inset 0 0 2px #fff;
-	background: hsl(26, 18%, 42%);
+	/* background: hsl(26, 18%, 42%); */
 	/* background: -webkit-linear-gradient(top, hsl(21, 94%, 67%), #FFF); */
 	background: -moz-linear-gradient(top, hsl(35,28%,90%), #fff); /* ADD other versions */
 }

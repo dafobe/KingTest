@@ -20,7 +20,7 @@ angular.module('GamePortfolioApp')
       }
       
       this.addGame = function(game){
-    	  !ctrl._isInPortfolio(game.short) && GamesFactory.addGame(game);
+    	  !ctrl._isInPortfolio(game.id) && GamesFactory.addGame(game);
     	  ctrl.portfolioGames = GamesFactory.getGames();
       };
       

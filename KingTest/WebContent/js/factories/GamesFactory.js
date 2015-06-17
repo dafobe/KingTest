@@ -60,19 +60,26 @@ angular.module('GamePortfolioApp')
 	return {
 		getAllGames : function () {
 			var deferred = $q.defer();
-			$http.get('json/games.json')
-			.success(function (data) {
-				for(var r in data.games){
-					var game = data.games[r]
-					var entry = new gameEntry(game.short, game.name, game.url);
-					entry.setup();
-					_allGames.push(entry);
-				}
-				deferred.resolve(_allGames);
-			})
-			.error(function (data) {
-				deferred.reject(data);
-			});
+			//Only retrieve games first time, otherwise return already set array
+			if(!_allGames.length){
+				$http.get('json/games.json')
+				.success(function (data) {
+					for(var r in data.games){
+						var game = data.games[r]
+						var entry = new gameEntry(game.short, game.name, game.url);
+						entry.setup();
+						_allGames.push(entry);
+					}
+					deferred.resolve(_allGames);
+				})
+				.error(function (data) {
+					deferred.reject(data);
+				});
+				
+			}else{
+				deferred.resolve(_allGames)
+			}
+			
 			return deferred.promise;
 		},
 		getGames : function(){

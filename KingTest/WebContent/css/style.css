@@ -21,10 +21,10 @@ ul,ol,li {
 ==========*/
 .header {
   padding: 0 0;
-  background: #ff4600;
+  background: rgba(255, 255, 255, 0.69);
   margin: 0 0 10px;
-  color: #FFFFFF;
-  background-image: radial-gradient(circle farthest-corner at 26% 0, #FD4500 , #9B2A0D 90%);
+  /* color: #FFFFFF; */
+  /* background-image: radial-gradient(circle farthest-corner at 26% 0, #FD4500 , #9B2A0D 90%); */
   /*linear-gradient:(#ffffff 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);*/
   text-align: center;
   margin-bottom: 0;
@@ -60,7 +60,6 @@ ul,ol,li {
 
 .header__title{
 	font-size: 40px;
-	/* color: #ff4600; */
 }
 .header__title em{
 	font-style: normal;
@@ -135,7 +134,8 @@ ul,ol,li {
     Gallery
 ==========*/
 .gallery {
-	/* background: #A39183; */
+	background: #3F3F3F;
+	/* background: #808080; */
 	/* padding: 43px 0 0 0; */
 }
 .gallery__info {
@@ -153,7 +153,7 @@ ul,ol,li {
 	color: #FF6101;
 	-ms-flex: 1 1 100%;
 	-webkit-flex: 1 1 100%;
-	flex: 1 1 100%;
+	/* flex: 1 1 100%; */
 	
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -217,29 +217,28 @@ ul,ol,li {
 	border-radius: 2px;
 	border: 1px solid #747474; /* IE fallback */
 	
-	color: #A39183; /* IE fallback */
+	background: #FFFFFF;
+	color: #FFFDFC; /* IE fallback */
 	text-align: center;
 }
-.gallery__item-title{
-	position: relative;
+.gallery__item--title{
+	position: absolute;
+	top: 0;
 	width: 100%;
 	padding: 5px 2px;
 	
-	margin-bottom: 50px;
-	background: rgba(230, 63, 0, 0.48);
+	/* margin-bottom: 50px; */
+	background: rgba(7, 144, 29, 0.48);
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* IE */
     zoom: 1;
-	color: #FFFFFF;
+	color: #FF7402;
 	z-index: 10;
 }
 
 .gallery__item > img{
-	opacity: 0.;
 	
-	 /* position: absolute; */
-	top: 0;
-	left: 0;
-	right: 0;
+	 
+	padding-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 	/* text-align: center; */
@@ -297,172 +296,100 @@ input[type="text"] {
 	/* background: -webkit-linear-gradient(top, hsl(21, 94%, 67%), #FFF); */
 	background: -moz-linear-gradient(top, hsl(35,28%,90%), #fff); /* ADD other versions */
 }
-/**/
 
+/* Media queries */
 
-.module.inbox-view {
-  background-color: #313744;
-  color: #D5DDE0;
-  left: 0;
-  width: 30%;
-  padding: 25px;
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-device-width : 480px) {
+  /* ========
+    Header
+	==========*/
+	.header {
+	}
+	.header__title::before{
+		top: -10px;
+		left: 0;
+		z-index: 100;  
+		width: 75px;  height: 52px;
+		background: url('../img/kingLogoSprite.png') no-repeat -231px -2px;
+	}
+	.header__logo{
+    flex: 1 1 100%;
+	}
+	
+	.header__title{
+    font-size: 20px;
+	}
+	.header__title em{
+	}
+	
+	.header p a {
+	}
+	.header__separator {
+	}
+	/* ========
+	    Menu
+	==========*/
+	.menu{
+    background: rgba(2, 2, 2, 0.64);
+	}
+	.menu__list{
+    flex-flow: row wrap;
+	
+    justify-content: space-around;
 }
-
-.module.inbox-view h1 {
-  font-weight: 300;
-  font-size: 22px;
-}
-
-.module.directive {
-  background-color: #F6F5F3;
-  color: #44424C;
-  right: 0;
-  width: 100%;
-}
-
-.module.directive .email {
-  padding: 25px;
-}
-
-.flex {
-  display: flex;
-  align-items: stretch;
-  min-height: 1000px;
-}
-
-/**
- * inbox
- */
-.inbox {
-
-}
-.inbox__list {
-
-}
-.inbox__list li {
-  border-top: 1px solid #ccc;
-  padding: 15px 0;
-}
-.inbox__list li:last-child {
-  border-bottom: 1px solid #ccc;
-}
-.inbox__count {
-  margin: 0 0 10px 0;
-}
-
-.search-bar {
-  background-color: #E3E1E2;
-  height: 105px;
-  padding: 25px;
-}
-
-.inbox__search {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 6px 10px;
-  margin: 0 0 10px 0;
-  width: 250px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
-}
-.inbox__search:focus {
-  outline: 0;
-  border-color: #aaa;
-}
-
-.inbox__list-info {
-  display: inline-block;
-  left: 0;
-  width: 80%;
-  padding-left: 25px;
-}
-
-.inbox__list-date {
-  font-size: 12px;
-  margin-bottom: 15px;
-}
-
-.inbox__list-actions {
-  margin: 10px 0 0;
-  display: inline-block;
-  right: 0;
-  margin-left: 25px;
-}
-.inbox__list-subject {
-  font-weight: 900;
-}
-.inbox__list-actions a {
-  margin: 0 10px 0 0;
-  font-weight: 900;
-  display: inline-block;
-  text-decoration: none;
-  border: 1px solid #a6120d;
-  border-radius: 3px;
-  padding: 6px 10px;
-  color: #fff;
-  background: #dd1d18;
-}
-.inbox__list-actions a:hover {
-  background: #a6120d;
-}
-
-li.no-emails {
-  padding: 25px;
-}
-
-/**
- * email
- */
-.email {
-
-}
-.email__info {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 15px 0;
-}
-.email__content {
-  margin: 15px 0;
-}
-.email__content p {
-  margin: 0 0 10px;
-}
-.email__reply,
-.email__response a,
-.email__back {
-  margin: 10px 10px 0 0;
-  font-weight: 900;
-  display: inline-block;
-  text-decoration: none;
-  border: 1px solid #a6120d;
-  border-radius: 3px;
-  padding: 6px 10px;
-  color: #fff;
-  background: #dd1d18;
-}
-.email__reply:hover,
-.email__response a:hover,
-.email__back:hover {
-  background: #a6120d;
-}
-.email__response {
-  margin: 0 0 25px;
-}
-.email__response-text {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 6px 10px;
-  color: #222;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100px;
-  outline: 0;
-}
-.email__response-text:focus {
-  border-color: #aaa;
-}
-
-@media screen and (max-width: 840px) {
-  .module.inbox-view {
-    display: none;
-  }
+	.menu__item{
+	}
+	.menu__item:nth-of-type(1) .menu__item__link:hover{
+	}
+	.menu__item:nth-of-type(2) .menu__item__link:hover{
+	}
+	.menu__item:nth-of-type(3) .menu__item__link:hover{
+	}
+	.menu__item__link{
+	}
+	.menu__separator {
+	}
+	/* ========
+	    Gallery
+	==========*/
+	.gallery {
+	}
+	.gallery__info {
+	}
+	.gallery__info-main {
+	}
+	.gallery__info-sec {
+	}
+	.gallery__search{
+	}
+	.search__label{
+	}
+	.search__input{
+	}
+	.gallery__list{
+	}
+	.gallery__item{
+		flex: 1 0 100%;
+	}
+	.gallery__item--title{
+	}
+	
+	.gallery__item > img{
+	}
+	
+	.gallery__item--circle{
+	}
+	.gallery__item--action{
+	}
+	/**/
+	button::-moz-focus-inner { border:0; }
+	button {
+	}
+	button:hover {
+	}
+	button:active {
+	}
+	input[type="text"] {
+	}
 }

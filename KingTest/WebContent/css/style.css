@@ -1,3 +1,13 @@
+@font-face {
+  font-family: FabfeltScript;
+  src: url('../fonts/FabfeltScript-Bold.eot');
+  src: local('FabfeltScript-Bold'),  url('../fonts/FabfeltScript-Bold.woff') format('woff'),  url('../fonts/FabfeltScript-Bold.otf') format('opentype'),  url('../fonts/FabfeltScript-Bold.svg#FabfeltScript-Bold') format('svg');
+}
+@font-face {
+  font-family: Tresdias;
+  src: url('../fonts/Tresdias.eot');
+  src: local('Tresdias'),  url('../fonts/Tresdias.woff') format('woff'),  url('../fonts/Tresdias.otf') format('opentype'),  url('../fonts/Tresdias.svg#Tresdias') format('svg');
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,15 +25,16 @@ ul,ol,li {
 }
 .wrapper {
 	min-width: 320px;
+	color: #FF5701;
 }
 /* ========
     Header
 ==========*/
 .header {
+  font-family: 'Tresdias', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 0 0;
   background: rgba(255, 255, 255, 0.69);
   margin: 0 0 10px;
-  /* color: #FFFFFF; */
   /* background-image: radial-gradient(circle farthest-corner at 26% 0, #FD4500 , #9B2A0D 90%); */
   /*linear-gradient:(#ffffff 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);*/
   text-align: center;
@@ -42,7 +53,7 @@ ul,ol,li {
 	position: absolute;
 	top: 43px;
 	/* left: 4em; */
-	width: 142px;
+	width: 130px;
 	height: 107px;
 	z-index: 100;
 	/* margin-left: -70px; */
@@ -65,25 +76,20 @@ ul,ol,li {
 	font-style: normal;
 	font-size: 40px;
 	/* font-weight: 900; */
-	color: #FFFFFF;
 }
 
-.header p a {
-  text-decoration: none;
-  color: #D5DDE0;
-  border-bottom: 1px solid #D5DDE0;
-}
 .header__separator {
-	padding-top: 46px;
+	/* padding-top: 46px; */
 	border-top: 1px solid #FF8040;
 	border-bottom: 1px solid #9B2A00;
+	width: 100%;
 }
 /* ========
     Menu
 ==========*/
 .menu{
 	/* background-color: rgba(255, 128, 64, 0); */
-	color: white;
+	/* color: white; */
 	flex: 1 1 auto;
 }
 .menu__list{
@@ -94,7 +100,8 @@ ul,ol,li {
 	display: -webkit-flex;
 	display: flex;
 	
-	 -webkit-flex-flow: row wrap;
+	 
+	-webkit-flex-flow: row wrap;
 	justify-content: flex-end;
 	
 	margin: 0;
@@ -120,13 +127,13 @@ ul,ol,li {
 	border-bottom: 5px solid #68062E;
 }
 .menu__item__link{
-	font-family: 'Hammersmith One', sans-serif;
+	vertical-align: bottom;
 	text-decoration:none;
-	padding:5px 10px;
-	/* color: #FFE001; */
-	text-shadow: 0 1px 0 hsla(0,0%,0%,.5);
+	padding: 0px 5px;
+	/* text-shadow: 0 1px 0 hsla(0,0%,0%,.5); */
 }
 .menu__separator {
+	width: 100%;
 	border-top: 1px solid #FFFFFF;
 	border-bottom: 1px solid #9B2A00;
 }
@@ -134,23 +141,20 @@ ul,ol,li {
     Gallery
 ==========*/
 .gallery {
-	background: #3F3F3F;
+	/* background: #3F3F3F; */
 	/* background: #808080; */
 	/* padding: 43px 0 0 0; */
 }
 .gallery__info {
-	background: rgba(163, 145, 131, 0.33);
-	text-align: center;
-	color: #FFE001;
+	/* background: rgba(163, 145, 131, 0.33); */
+	text-align: right;
 }
 .gallery__info-main {
-	/* background: #559855; */
 }
 .gallery__info-sec {
 	/* background: #559855; */
 }
 .gallery__search{
-	color: #FF6101;
 	-ms-flex: 1 1 100%;
 	-webkit-flex: 1 1 100%;
 	/* flex: 1 1 100%; */
@@ -172,7 +176,6 @@ ul,ol,li {
 	text-align: center; /* FALLBACK */
 }
 .search__label{
-	font-family: 'Hammersmith One', sans-serif;
 	font-weight: normal;
 	font-size: 112.5%;
 	padding: 20px;
@@ -206,20 +209,21 @@ ul,ol,li {
 }
 .gallery__item{
 	position: relative;
-	-ms-flex: 1 0 200px;
-	-webkit-flex: 1 0 200px;
+	-ms-flex: 0 0 200px;
+	-webkit-flex: 0 0 200px;
 	flex: 0 0 200px; /* wrapping won't happen with 1 as value because of flex-basis equal to 0 again. can use auto as flex-basis, but then each box is different width. using an absolute value acts as min-width but also ensures they start out same size so when flex gets added it gets added equally and each box on same line stays same width */
 	
-	margin: 0 0 20px 20px;
+	margin: 0 0 15px 0;
 	padding: 5px 0 47px 0;
-	-webkit-box-shadow: inset 0 0 1px 1px hsla(0,0%,100%,.5);
-	box-shadow: inset 0 0 1px 1px hsla(0,0%,100%,.5);
 	border-radius: 2px;
 	border: 1px solid #747474; /* IE fallback */
-	
+	-webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+		
 	background: #FFFFFF;
-	color: #FFFDFC; /* IE fallback */
 	text-align: center;
+	font-family: 'FabfeltScript', sans-serif;
 }
 .gallery__item--title{
 	position: absolute;
@@ -228,10 +232,9 @@ ul,ol,li {
 	padding: 5px 2px;
 	
 	/* margin-bottom: 50px; */
-	background: rgba(7, 144, 29, 0.48);
+	/* background: rgba(7, 144, 29, 0.48); */
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* IE */
     zoom: 1;
-	color: #FF7402;
 	z-index: 10;
 }
 
@@ -269,7 +272,6 @@ button {
 	border-radius: 3px;
 	-webkit-box-shadow: inset 0 0 1px 1px hsla(0,0%,100%,.5);
 	box-shadow: inset 0 0 1px 1px hsla(0,0%,100%,.5);
-	color: #fff;
 	padding: 12px 20px 14px 20px;
 	text-align: center;
 	text-shadow: 0 1px 0 hsla(0,0%,0%,.5);
@@ -300,7 +302,7 @@ input[type="text"] {
 /* Media queries */
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-device-width : 480px) {
+@media only screen and (max-width : 480px) {
   /* ========
     Header
 	==========*/
@@ -331,13 +333,13 @@ input[type="text"] {
 	    Menu
 	==========*/
 	.menu{
-    background: rgba(2, 2, 2, 0.64);
+    	background: rgba(2, 2, 2, 0.64);
 	}
 	.menu__list{
-    flex-flow: row wrap;
-	
-    justify-content: space-around;
-}
+	    flex-flow: row wrap;
+		
+	    justify-content: space-around;
+	}
 	.menu__item{
 	}
 	.menu__item:nth-of-type(1) .menu__item__link:hover{

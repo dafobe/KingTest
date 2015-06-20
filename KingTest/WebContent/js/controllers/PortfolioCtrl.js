@@ -22,4 +22,7 @@ angular.module('GamePortfolioApp')
     	  GamesFactory.setGameDetails(game);
     	  NavigationFactory.renderGameDetails(game.id);
       }
+      this.showGallery = function(){
+    	  NavigationFactory.renderGallery();
+      }
     });

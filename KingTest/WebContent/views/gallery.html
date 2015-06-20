@@ -1,10 +1,9 @@
 <div  class="gallery">
 	<div class="gallery__info">
-		<h1 class="gallery__info-main">King Games : {{gallery.allGames.length}}</h1>
-		<h3 class="gallery__info-sec">Games in Portfolio : {{gallery.portfolioGames.length}}</h3>
+		<h2 class="gallery__info-sec">Added {{gallery.portfolioGames.length}} Games to Porfolio</h2>
+		<!-- <h3 class="gallery__info-sec">Games in Portfolio : {{gallery.portfolioGames.length}}</h3> -->
 	</div>
     <section data-ng-hide="!gallery.allGames.length" class="gallery__search">
-		<label class="search__label">Search Game: </label>
 		<input class="search__input" type="text" data-ng-model="gallery.search" placeholder="Search by 'name'" />
 	</section>
 	<section class="gallery__list">
@@ -15,7 +14,7 @@
 			<h3 class="gallery__item--title">{{game.name}}</h3>
 			<!-- <em>Lorem Ipsum Description</em> -->
 			<img data-ng-src="{{game.images['170x80']}}">
-			<p class="gallery__item--action">
+			<p class="gallery__item--action gallery__item--action--right">
 				<a  href="javascript:void(0)">
 					Add to portfolio
 				</a>

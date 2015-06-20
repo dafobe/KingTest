@@ -1,33 +1,30 @@
-<div  class="portfolio-view">
-  <div class="portfolio__title">
-    <h1>Number of Portfolio Games : {{ portfolio.games.length }}</h1>
-  </div>
-</div>
-<div class="module directive">
-	<div data-ng-hide="!portfolio.games.length">
-      <input type="text" class="portfolio__search" 
-        data-ng-model="portfolio.search" placeholder="Search by 'name'">
-    </div>
-
-	<ul class="portfolio__list">
-		<li data-ng-show="!portfolio.games.length">
-			Oooops!!! May you should add some games to your portfolio.
-			<a data-ng-click="portfolio.removeGame(game)" href="javascript:void(0)">
-					Game Gallery
-				</a>
-		</li>
-		<li data-ng-repeat="game in portfolio.games | filter:{ name: portfolio.search }">
-			<div class="portfolio__list-info">
-				<label class="portfolio__list-name">{{game.name}}</label>
-				<a data-ng-click="portfolio.showDetails(game)" href="javascript:void(0)">
+<div  class="gallery portfolio">
+	<div class="gallery__info">
+		<h2 data-ng-hide="!portfolio.games.length" class="gallery__info-sec">{{ portfolio.games.length }} Portfolio Games</h2>
+	</div>
+    <section data-ng-hide="!portfolio.games.length" class="gallery__search">
+		<input class="search__input" type="text" data-ng-model="portfolio.search" placeholder="Search by 'name'" />
+	</section>
+	<section class="gallery__list">
+		<article data-ng-show="!portfolio.games.length" class="no-items">
+			Oooops!!! Seems you still haven't add games to your portfolio.<br />
+			<button type="button" data-ng-click="portfolio.showGallery()">Back To Gallery</button>
+		</article>
+		<article data-ng-hide="!portfolio.games.length" class="gallery__item" data-ng-repeat="game in portfolio.games | filter:{ name: portfolio.search }">
+			<h3 class="gallery__item--title">{{game.name}}</h3>
+			<!-- <em>Lorem Ipsum Description</em> -->
+			<img data-ng-src="{{game.images['60x60']}}">
+			<p class="gallery__item--action gallery__item--action--right">
+				<a  data-ng-click="portfolio.showDetails(game)" href="javascript:void(0)">
 					Details
 				</a>
+			</p>
+			<p class="gallery__item--action gallery__item--action--left">
 				<a data-ng-click="portfolio.removeGame(game)" href="javascript:void(0)">
 					Remove
 				</a>
-			</div>
-		</li>
-	</ul>
-    <!-- <game></game> -->
+			</p>
+		</article>
+	</section>
 </div>
     

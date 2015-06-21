@@ -4,17 +4,17 @@
 			<button type="button" data-ng-click="game.showGallery()">Back To Gallery</button>
 	</section>
 	<section data-ng-hide="!game.name">
-		<header>
-			<h1 class="game__title">{{game.name}}</h1>
-			<em class="game__sub-title">{{game.name}}</em>
-			<!-- <img alt="" data-ng-src="{{game.images['60x60']}}"> -->
+		<header class="game__title">
+			<h1>{{game.name}}</h1>
 		</header>
-		<img data-ng-src="{{game.imageBig}}">
-		<button type="button" data-ng-click="game.playGame()">Play</button>
-		<ul class="game__info">
-			<li>name : {{game.name}}</li>
-			<li>play game : {{game.url}}</li>
-		</ul>
+		<section class="game__main">
+			<img data-ng-src="{{game.imageBig}}" error-Src="img/imageError_764x260.jpg">
+			<div class="game__main__details">
+				<p><span>name :</span> {{game.name}}</p>
+				<p><span>url :</span> {{game.url}}</p>
+				<button type="button" data-ng-click="game.playGame()">Play</button>
+			</div>
+		</section>
 		<section class="game__details">
 			<article class="game__detail">
 				<label>screenshots</label>
@@ -24,7 +24,9 @@
 			<article class="game__detail">
 				<label>more details</label>
 				<img data-ng-src="{{game.image}}">
-				Lorem Ipsum ...
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat blandit velit, eget imperdiet massa. Donec id dui vel sem iaculis sollicitudin id in orci. Cras aliquet convallis tortor quis accumsan. Curabitur mollis turpis lorem, eu interdum elit iaculis at. Etiam sit amet felis nisi. Aliquam in ullamcorper dui, eget pellentesque enim. Maecenas sed dictum metus, non venenatis lorem.
+				</p>
 			</article>
 		</section>
 	</section>

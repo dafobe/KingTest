@@ -19,9 +19,12 @@ angular.module('GamePortfolioApp')
     	  }));
       }
       
-      this.addGame = function(game){
+      this.addGame = function addGame (game, $index){
     	  !ctrl._isInPortfolio(game.id) && GamesFactory.addGame(game);
-    	  ctrl.portfolioGames = GamesFactory.getGames();
+
+    	  var game = ctrl.allGames[$index];
+    	  game.isInPortfolio = true;
+    	  
       };
       
       this.removeGame = function(game){

@@ -8,8 +8,9 @@ angular.module('GamePortfolioApp')
 		generateURL,
 		gameEntry = function(id, name, url){this.id = id;
 											this.name = name;
-											this.url = url
-											this.images = {}};
+											this.url = url;
+											this.images = {};
+											this.isInPortfolio = false;};
 	
 	//Setup private functions
 	gameEntry.prototype.setup = function(){

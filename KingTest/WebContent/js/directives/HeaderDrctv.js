@@ -1,6 +1,3 @@
-/**
- * Directive: Inbox <inbox></inbox>
- */
 angular.module('GamePortfolioApp')
   .directive('portfolioheader', function HeaderDrctv () {
     'use strict';

@@ -10,7 +10,15 @@
 		<article data-ng-show="!gallery.allGames.length">
 			Oooops!!! Seems there aren't available games.
 		</article>
-		<article class="gallery__item" data-ng-repeat="game in gallery.allGames | filter:{ name: gallery.search }" data-ng-click="gallery.addGame(game)">
+		<article class="gallery__item" data-ng-repeat="game in gallery.allGames | filter:{ name: gallery.search }" data-ng-click="gallery.addGame(game, $index)">
+			<span class="gallery__item--mask gallery__item--added" data-ng-class="{'hide':!game.isInPortfolio}">
+		        <h1>Already Added</h1>
+		        <p>You have already added {{gallery.portfolioGames.length}} games</p>
+		    </span>
+			<span class="gallery__item--mask">
+		        <h1>Add To Portfolio</h1>
+		        <p>You have already added {{gallery.portfolioGames.length}} games</p>
+		    </span>
 			<h3 class="gallery__item--title">{{game.name}}</h3>
 			<!-- <em>Lorem Ipsum Description</em> -->
 			<img data-ng-src="{{game.images['170x80']}}">

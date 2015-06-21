@@ -10,10 +10,15 @@
 			Oooops!!! Seems you still haven't add games to your portfolio.<br />
 			<button type="button" data-ng-click="portfolio.showGallery()">Back To Gallery</button>
 		</article>
-		<article data-ng-hide="!portfolio.games.length" class="gallery__item" data-ng-repeat="game in portfolio.games | filter:{ name: portfolio.search }">
+		<article data-ng-hide="!portfolio.games.length" class="gallery__item portfolio" data-ng-repeat="game in portfolio.games | filter:{ name: portfolio.search }">
+			<ul class="portfolio__item--mask">
+		        <li data-ng-click="portfolio.removeGame(game)">Remove</li>
+		        <li data-ng-click="portfolio.showDetails(game)">Details</li>
+		    </ul>
+			<img class="gallery__item--title-icon gallery__item--circle" data-ng-src="{{game.images['60x60']}}">
 			<h3 class="gallery__item--title">{{game.name}}</h3>
+			<img data-ng-src="{{game.images['screenshot']}}">
 			<!-- <em>Lorem Ipsum Description</em> -->
-			<img data-ng-src="{{game.images['60x60']}}">
 			<p class="gallery__item--action gallery__item--action--right">
 				<a  data-ng-click="portfolio.showDetails(game)" href="javascript:void(0)">
 					Details
